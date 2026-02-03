@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CropGuard AI | Civora Nexus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>🌱 CropGuard AI</h1>
+<p>AI-based Crop Disease Detection</p>
+
+<form id="uploadForm">
+    <label>Crop Type</label>
+    <select name="crop_type" required>
+        <option>Tomato</option>
+        <option>Potato</option>
+        <option>Pepper</option>
+    </select>
+
+    <label>Growth Stage</label>
+    <select name="growth_stage">
+        <option>Seedling</option>
+        <option>Vegetative</option>
+        <option>Flowering</option>
+    </select>
+
+    <label>Upload Leaf Image</label>
+    <input type="file" name="image" required>
+
+    <button type="submit">Analyze with AI</button>
+</form>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

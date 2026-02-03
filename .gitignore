@@ -53,3 +53,7 @@ temp/
 # Package lock files (optional - uncomment if needed)
 # package-lock.json
 # yarn.lock
+*.h5
+uploads/
+.env 
+__pycache__/
