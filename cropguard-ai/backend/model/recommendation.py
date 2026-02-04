@@ -1,13 +1,12 @@
-import google.generativeai as genai
 import os
+from google import genai
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-
-model = genai.GenerativeModel("models/gemini-flash-latest")
+# Create client using API key
+client = genai.Client(api_key="AIzaSyA3cNJS6Xg7h-vIkzoD3uqrSz7VjQrcbQk")
 
 def generate_recommendation(crop, disease, confidence):
     prompt = f"""
-You are an agriculture expert.
+You are an agricultural expert.
 
 Crop: {crop}
 Detected Disease: {disease}
@@ -19,8 +18,12 @@ Provide:
 3. Preventive measures
 4. Safety tips
 
-Use simple language for farmers.
+Use simple language suitable for farmers.
 """
 
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model="models/gemini-flash-latest",
+        contents=prompt
+    )
+
     return response.text
